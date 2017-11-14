@@ -15,6 +15,7 @@ steps:
       command: set -o pipefail && npm -s run reportcoverage
       command: cp -R ./coverage/* ${CIRCLE_TEST_REPORTS}
       command: aws s3 cp ./coverage/lcov.info s3://elasticbeanstalk-us-west-2-886403637725/sonar/deploytest/
+
   - deploy:
       releases:
         branch: master
