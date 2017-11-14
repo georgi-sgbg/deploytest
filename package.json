@@ -1,0 +1,36 @@
+{
+  "name": "@mojaloop/deploytest",
+  "description": "Basic CI test for the mojaloop project. Warning: this package may be unpublished - do not depend on it!",
+  "version": "0.3.6",
+  "license": "Apache-2.0",
+  "main": "src/hello.js",
+  "scripts": {
+    "test": "tape ./test/*.js | tap-xunit",
+    "createcoverage": "nyc npm test",
+    "reportcoverage": "nyc report --reporter=lcov --reporter=text-lcov npm test",
+    "lint": "standard",
+    "server": "server.js",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "nyc": "^7.1.0",
+    "standard": "^8.1.0",
+    "tap-xunit": "^1.4.0",
+    "tape": "^4.6.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mojaloop/deploytest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mojaloop/deploytest/issues"
+  },
+  "homepage": "https://github.com/mojaloop/deploytest/blob/master/README.md",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Bill Hodghead (billh@crosslaketech.com)"
+}
