@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+  build:
+      docker:
+        - image: circleci/node:6.5.0
+
+steps:
+  - checkout
+  - run:
+      name: test
+      command: set -o pipefail && npm -s test > ${CIRCLE_TEST_REPORTS}/testresults.xml
+      command: npm run lint
+      command: npm run createcoverage
+      command: set -o pipefail && npm -s run reportcoverage
+      command: cp -R ./coverage/* ${CIRCLE_TEST_REPORTS}
+      command: aws s3 cp ./coverage/lcov.info s3://elasticbeanstalk-us-west-2-886403637725/sonar/deploytest/
+  - deploy:
+      releases:
+        branch: master
+        commands:
+          - sh ./scripts/ci-deploy.sh
