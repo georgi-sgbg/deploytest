@@ -7,14 +7,12 @@ jobs:
 
 steps:
   - checkout
-  - run:
-      name: test
-      command: set -o pipefail && npm -s test > ${CIRCLE_TEST_REPORTS}/testresults.xml
-      command: npm run lint
-      command: npm run createcoverage
-      command: set -o pipefail && npm -s run reportcoverage
-      command: cp -R ./coverage/* ${CIRCLE_TEST_REPORTS}
-      command: aws s3 cp ./coverage/lcov.info s3://elasticbeanstalk-us-west-2-886403637725/sonar/deploytest/
+  - run: set -o pipefail && npm -s test > ${CIRCLE_TEST_REPORTS}/testresults.xml
+  - run: npm run lint
+  - run: npm run createcoverage
+  - run: set -o pipefail && npm -s run reportcoverage
+  - run: cp -R ./coverage/* ${CIRCLE_TEST_REPORTS}
+  - run: aws s3 cp ./coverage/lcov.info s3://elasticbeanstalk-us-west-2-886403637725/sonar/deploytest/
 
   - deploy:
       releases:
