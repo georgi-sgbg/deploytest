@@ -1,7 +1,7 @@
 {
   "name": "@mojaloop/deploytest",
   "description": "Basic CI test for the mojaloop project. Warning: this package may be unpublished - do not depend on it!",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "license": "Apache-2.0",
   "main": "src/hello.js",
   "scripts": {
