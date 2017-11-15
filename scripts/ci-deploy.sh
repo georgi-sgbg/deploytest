@@ -2,9 +2,7 @@
 
 publishNpm() {
   # Push NPM package if not yet published
-   if [ "$(npm info $(npm ls --depth=-1 2>/dev/null | head -1 | cut -f 1 -d " ") 2>/dev/null)" = "undefined" ]; then
-    npm publish --access public
-  fi
+   npm publish --access public 2> /dev/null
 }
 
 pushDocker() {
