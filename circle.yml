@@ -14,4 +14,5 @@ deployment:
   releases:
     branch: master
     commands:
+      - sudo chmod 755 ./scripts/ci-deploy.sh
       - sh ./scripts/ci-deploy.sh

@@ -20,5 +20,6 @@ pushDocker() {
   docker push $REGISTRY$REPO":$(git describe)"
 }
 
+echo "deploying..."
 publishNpm
 # pushDocker
