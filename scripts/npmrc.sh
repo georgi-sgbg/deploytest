@@ -4,3 +4,4 @@ echo "//https://mojaloop.jfrog.io/mojaloop/api/npm/npm-local/:username=$username
 echo "//https://mojaloop.jfrog.io/mojaloop/api/npm/npm-local/:email=$email" >> ~/.npmrc
 echo "//https://mojaloop.jfrog.io/mojaloop/api/npm/npm-local/:always-auth=true" >> ~/.npmrc
 echo "//mojaloop.jfrog.io/mojaloop/api/npm/npm/:_authToken=$authtoken" >> ~/.npmrc
+
